@@ -1,0 +1,11 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=lib_management'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=Mod@Lity7Fly'
+      - 'MYSQL_USER=user'
+    ports:
+      - '3306'
+
