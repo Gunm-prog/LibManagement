@@ -3,7 +3,7 @@ package com.gunmProg.LibManagement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = { "com.gunmProg.libManagement"})
 public class LibManagementApplication {
 
 	public static void main(String[] args) {

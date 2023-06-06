@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "copies")
@@ -34,6 +35,8 @@ public class Copy implements Serializable {
     @JsonIgnoreProperties("copies")
     @JoinColumn(name = "library_id", nullable = false)
     private Library library;
+
+
 
 
 

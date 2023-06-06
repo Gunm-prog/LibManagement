@@ -39,8 +39,8 @@ public class User {
     @Column(name = "roles", nullable = false)
     private String roles;
 
-    /*@OneToMany(mappedBy = "users")
-    private Set<Loan> loans;*/
+    @OneToMany(mappedBy = "user")
+    private Set<Loan> loans;
 
 
 }

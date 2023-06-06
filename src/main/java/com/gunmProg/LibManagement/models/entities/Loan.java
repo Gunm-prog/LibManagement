@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "loans")
+@Table(name = "loan")
 @Data
 @NoArgsConstructor
 public class Loan implements Serializable {
@@ -32,15 +32,15 @@ public class Loan implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
-    /*@ManyToOne
-    @JsonIgnoreProperties("loans")
+    @ManyToOne
+    @JsonIgnoreProperties("loan")
     @JoinColumn(name = "copy_id", nullable = false)
     private Copy copy;
 
     @ManyToOne
-    @JsonIgnoreProperties("loans")
+    @JsonIgnoreProperties("loan")
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;*/
+    private User user;
 
 
 
