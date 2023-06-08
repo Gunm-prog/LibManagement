@@ -9,5 +9,7 @@ public interface LibraryService {
 
     LibraryDto getById(Long id) throws NotFoundException;
 
+    LibraryDto update(LibraryDto libraryWithNewData);
+
     void delete(LibraryDto libraryDto);
 }

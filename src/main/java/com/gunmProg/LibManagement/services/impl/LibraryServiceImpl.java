@@ -39,6 +39,14 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
+    public LibraryDto update(LibraryDto libraryWithNewData) {
+        Library updatedLibrary = libraryRepository.save(
+                libraryMapper.convertToLibrary(libraryWithNewData)
+        );
+        return libraryMapper.convertToLibraryDto(updatedLibrary);
+    }
+
+    @Override
     public void delete(LibraryDto libraryDto) {
         libraryRepository.delete(libraryMapper.convertToLibrary(libraryDto));
 

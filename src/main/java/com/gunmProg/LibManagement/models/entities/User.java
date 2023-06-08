@@ -42,5 +42,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Loan> loans;
 
+    @Embedded
+    Address address;
+
 
 }

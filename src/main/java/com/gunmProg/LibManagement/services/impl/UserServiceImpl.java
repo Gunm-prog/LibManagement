@@ -39,7 +39,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDto update(UserDto userWithNewData) {
+        User updatedUser = userRepository.save(
+                userMapper.convertToUser(userWithNewData)
+        );
+        return userMapper.convertToUserDto(updatedUser);
+    }
+
+    @Override
     public void delete(UserDto userDto) {
-        userRepository.delete(userMapper.convertToUser(userDto));
+        userRepository.delete(
+                userMapper.convertToUser(userDto)
+        );
     }
 }

@@ -9,5 +9,7 @@ public interface CopyService {
 
     CopyDto getById(Long id) throws NotFoundException;
 
+    CopyDto update(CopyDto copyWithNewData);
+
     void delete(CopyDto copyDto);
 }

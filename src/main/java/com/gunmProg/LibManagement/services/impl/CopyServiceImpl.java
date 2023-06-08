@@ -39,6 +39,14 @@ public class CopyServiceImpl implements CopyService {
     }
 
     @Override
+    public CopyDto update(CopyDto copyWithNewData) {
+        Copy updatedCopy = copyRepository.save(
+                copyMapper.convertToCopy(copyWithNewData)
+        );
+        return copyMapper.convertToCopyDto(updatedCopy);
+    }
+
+    @Override
     public void delete(CopyDto copyDto) {
         copyRepository.delete(copyMapper.convertToCopy(copyDto));
 

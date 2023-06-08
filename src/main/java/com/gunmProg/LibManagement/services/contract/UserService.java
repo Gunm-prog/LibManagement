@@ -9,5 +9,7 @@ public interface UserService {
 
     UserDto getById(Long id) throws NotFoundException;
 
+    UserDto update(UserDto userWithNewData);
+
     void delete(UserDto userDto);
 }

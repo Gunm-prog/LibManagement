@@ -9,5 +9,7 @@ public interface AuthorService {
 
     AuthorDto getById(Long id) throws NotFoundException;
 
+    AuthorDto update(AuthorDto authorWithNewData);
+
     void delete(AuthorDto authorDto);
 }

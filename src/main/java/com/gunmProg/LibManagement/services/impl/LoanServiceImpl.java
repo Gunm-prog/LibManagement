@@ -39,6 +39,14 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
+    public LoanDto update(LoanDto loanWithNewData) {
+        Loan updatedLoan = loanRepository.save(
+                loanMapper.convertToLoan(loanWithNewData)
+        );
+        return loanMapper.convertToLoanDto(updatedLoan);
+    }
+
+    @Override
     public void delete(LoanDto loanDto) {
         loanRepository.delete(loanMapper.convertToLoan(loanDto));
     }

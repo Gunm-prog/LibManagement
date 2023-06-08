@@ -9,5 +9,7 @@ public interface LoanService {
 
     LoanDto getById(Long id) throws NotFoundException;
 
+    LoanDto update(LoanDto loanWithNewData);
+
     void delete(LoanDto loanDto);
 }

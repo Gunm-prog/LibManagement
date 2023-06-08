@@ -39,6 +39,14 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    public AuthorDto update(AuthorDto authorWithNewData) {
+        Author updateAuthor = authorRepository.save(
+                authorMapper.convertToAuthor(authorWithNewData)
+        );
+        return authorMapper.convertToAuthorDto(updateAuthor);
+    }
+
+    @Override
     public void delete(AuthorDto authorDto) {
         authorRepository.delete(authorMapper.convertToAuthor(authorDto));
     }

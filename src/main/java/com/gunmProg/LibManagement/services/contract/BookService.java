@@ -9,5 +9,7 @@ public interface BookService {
 
     BookDto getById(Long id) throws NotFoundException;
 
+    BookDto update(BookDto bookWithNewData);
+
     void delete(BookDto bookDto);
 }
