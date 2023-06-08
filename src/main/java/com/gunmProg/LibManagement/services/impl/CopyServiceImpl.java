@@ -1,7 +1,7 @@
 package com.gunmProg.LibManagement.services.impl;
 
 import com.gunmProg.LibManagement.exceptions.NotFoundException;
-import com.gunmProg.LibManagement.mappers.CopyMapper;
+import com.gunmProg.LibManagement.models.mappers.CopyMapper;
 import com.gunmProg.LibManagement.models.dtos.CopyDto;
 import com.gunmProg.LibManagement.models.entities.Copy;
 import com.gunmProg.LibManagement.repositories.CopyRepository;

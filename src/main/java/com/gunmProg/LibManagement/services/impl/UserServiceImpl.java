@@ -1,7 +1,7 @@
 package com.gunmProg.LibManagement.services.impl;
 
 import com.gunmProg.LibManagement.exceptions.NotFoundException;
-import com.gunmProg.LibManagement.mappers.UserMapper;
+import com.gunmProg.LibManagement.models.mappers.UserMapper;
 import com.gunmProg.LibManagement.models.dtos.UserDto;
 import com.gunmProg.LibManagement.models.entities.User;
 import com.gunmProg.LibManagement.repositories.UserRepository;

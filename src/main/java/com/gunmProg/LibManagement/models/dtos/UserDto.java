@@ -27,5 +27,7 @@ public class UserDto {
 
     private CopyDto copyDto;
 
+    private AddressDto addressDto;
+
 
 }

@@ -1,4 +1,4 @@
-package com.gunmProg.LibManagement.mappers;
+package com.gunmProg.LibManagement.models.mappers;
 
 import com.gunmProg.LibManagement.models.dtos.LibraryDto;
 import com.gunmProg.LibManagement.models.entities.Library;

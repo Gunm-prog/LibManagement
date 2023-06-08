@@ -32,6 +32,9 @@ public class Loan implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
+    @Column(name = "is_returned")
+    private boolean isReturned;
+
     @ManyToOne
     @JsonIgnoreProperties("loan")
     @JoinColumn(name = "copy_id", nullable = false)

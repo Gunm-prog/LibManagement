@@ -24,7 +24,7 @@ public class Copy implements Serializable {
     private Long id;
 
     @Column(name = "available", nullable = false)
-    private boolean available;
+    private boolean isAvailable;
 
     @ManyToOne
     @JsonIgnoreProperties("copies")
