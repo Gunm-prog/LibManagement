@@ -1,5 +1,6 @@
 package com.gunmProg.LibManagement.controllers;
 
+import com.gunmProg.LibManagement.exceptions.AlreadyExistsException;
 import com.gunmProg.LibManagement.exceptions.NotFoundException;
 import com.gunmProg.LibManagement.models.dtos.AuthorDto;
 import com.gunmProg.LibManagement.services.contract.AuthorService;
@@ -9,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("author")
@@ -16,6 +19,25 @@ public class AuthorController {
 
     @Autowired
     private AuthorService authorService;
+
+    @GetMapping(value = "/findAll")
+    ResponseEntity<?> findAll(){
+        try{
+            List<AuthorDto> authorDtos = authorService.findAll();
+            return new ResponseEntity<>(authorDtos, HttpStatus.OK);
+        } catch (NotFoundException | AlreadyExistsException exception) {
+            log.warn(exception.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(exception.getMessage());
+        } catch (Exception exception) {
+            log.warn(exception.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("INTERNAL_SERVER_ERROR");
+        }
+    }
+
 
     @PostMapping(value = "/create")
     ResponseEntity<?> create(@RequestBody AuthorDto authorDto) {

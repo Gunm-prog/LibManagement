@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -23,6 +24,13 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
     private AuthorMapper authorMapper;
+
+
+    @Override
+    public List<AuthorDto> findAll() {
+        List<Author> authorList = authorRepository.findAll();
+        return authorMapper.convertToAuthorDto(authorList);
+    }
 
     @Override
     public AuthorDto create(AuthorDto authorDto) {

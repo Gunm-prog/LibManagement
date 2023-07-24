@@ -43,7 +43,7 @@ public class User {
     private Set<Loan> loans;
 
     @Embedded
-    Address address;
+    private Address address;
 
 
 }

@@ -13,5 +13,11 @@ public class BookDto {
 
     private String title;
 
-    private AuthorDto authorDto;
+    /**
+     * pas private AuthorDto authorDto le nom doit être le même que dans l'objet book sinon
+     * le mapper ne trouve pas les bonnes informations et donnera un author=null
+     * Attention au typage différent du nom de variable: ici le nom de la variable c'est author!!!!
+     * comme dans l'objet book!!!
+    */
+    private AuthorDto author;
 }

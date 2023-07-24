@@ -4,10 +4,15 @@ import com.gunmProg.LibManagement.models.dtos.LibraryDto;
 import com.gunmProg.LibManagement.models.entities.Library;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = { AddressMapper.class})
 public interface LibraryMapper {
 
     Library convertToLibrary(LibraryDto libraryDto);
 
     LibraryDto convertToLibraryDto(Library library);
+
+
+    List<LibraryDto> convertToLibraryDto(List<Library> libraryList);
 }

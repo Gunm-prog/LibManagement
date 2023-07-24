@@ -14,7 +14,7 @@ public class LibraryDto {
 
     private String name;
 
-    private AddressDto addressDto;
+    private AddressDto address;
 
-    private Set<Copy> copies;
+    private Set<CopyDto> copies;
 }

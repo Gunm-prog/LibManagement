@@ -2,6 +2,8 @@ package com.gunmProg.LibManagement.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -9,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "library")
+@Data
 public class Library implements Serializable {
 
     @Serial

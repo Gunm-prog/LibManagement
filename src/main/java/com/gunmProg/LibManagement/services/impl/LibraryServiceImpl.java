@@ -1,5 +1,6 @@
 package com.gunmProg.LibManagement.services.impl;
 
+import com.gunmProg.LibManagement.exceptions.AlreadyExistsException;
 import com.gunmProg.LibManagement.exceptions.NotFoundException;
 import com.gunmProg.LibManagement.models.mappers.LibraryMapper;
 import com.gunmProg.LibManagement.models.dtos.LibraryDto;
@@ -10,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -24,11 +27,23 @@ public class LibraryServiceImpl implements LibraryService {
     @Autowired
     LibraryMapper libraryMapper;
 
+
     @Override
-    public LibraryDto create(LibraryDto libraryDto) {
-        Library newLibrary = libraryMapper.convertToLibrary(libraryDto);
-        libraryRepository.save(newLibrary);
-        return libraryMapper.convertToLibraryDto(newLibrary);
+    public List<LibraryDto> findAll() {
+        List<Library> libraryList = libraryRepository.findAll();
+        return libraryMapper.convertToLibraryDto(libraryList);
+    }
+    @Override
+    public LibraryDto create(LibraryDto libraryDto) throws AlreadyExistsException {
+        Optional<Library> optionalLibrary = libraryRepository.findByName(libraryDto.getName());
+        if (optionalLibrary.isPresent()) {
+            throw new AlreadyExistsException(ENTITY_NAME + " library already exists");
+        } else {
+            System.out.println(libraryDto);
+            Library newLibrary = libraryMapper.convertToLibrary(libraryDto);
+            libraryRepository.save(newLibrary);
+            return libraryMapper.convertToLibraryDto(newLibrary);
+        }
     }
 
     @Override
